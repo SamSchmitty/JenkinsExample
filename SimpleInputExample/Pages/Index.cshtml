@@ -1,0 +1,17 @@
+﻿@page
+@model IndexViewModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <form id="simpleInputForm">
+        @Html.LabelFor(m => m.DivisibleByTwoInput, "Enter an intiger that is divisible by 2.", new { @class = "h2" })
+        <br>
+        @Html.TextAreaFor(m => m.DivisibleByTwoInput)
+        <br>
+        <button id="SimpleInputFormButtonPost">Check</button>
+    </form>
+</div>
+
+<script type="text/javascript" src="~/site.js"></script>
