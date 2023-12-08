@@ -17,9 +17,10 @@ var site = (function () {
         });
     };
 
-    that.submitForm = function (input) {
+    that.checkInput = function (input) {
         $ajax({
             url:$("base").attr("href")+""
+            
         });
 
     };
