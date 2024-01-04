@@ -13,7 +13,6 @@ namespace SimpleInputExample.Controllers
             _simpleBuilder = new SimpleBuilder();
         }
 
-        
         public IActionResult Index()
         {
             // using the default values set in the ViewModel class.
