@@ -16,17 +16,17 @@ pipeline {
         }
         stage('Restore packages') {
             steps {
-                dotnetRestore
+                sh 'dotnet restore'
             }
         }
         stage('Build Code') {
             steps {
-                dotnetBuild
+                sh 'dotnet build'
             }
         }
         stage('Unit Tests'){
             steps {
-                dotnetTest
+                sh 'dotnet test'
             }
         }
     }
