@@ -1,20 +1,20 @@
 pipeline {
     agent any
-    withDotNet(sdk: 'SimpleInputExample_dotnet_8_sdk') {
-        stages {
-            stage('Clean Workspace') {
-                steps {
-                    echo 'Cleaning Workspace...'
-                    cleanWs()
-                }
+    stages {
+        stage('Clean Workspace') {
+            steps {
+                echo 'Cleaning Workspace...'
+                cleanWs()
             }
-            stage('Checkout Code') {
-                steps {
-                    echo 'Checking out code'
-                    git branch: 'main', credentialsId: 'github-jenkinsexample-pat-credentials',
-                        url: 'https://github.com/SamSchmitty/JenkinsExample.git'
-                }
+        }
+        stage('Checkout Code') {
+            steps {
+                echo 'Checking out code'
+                git branch: 'main', credentialsId: 'github-jenkinsexample-pat-credentials',
+                    url: 'https://github.com/SamSchmitty/JenkinsExample.git'
             }
+        }
+        withDotNet(sdk: 'SimpleInputExample_dotnet_8_sdk') {
             stage('Restore packages') {
                 steps {
                     dotnetRestore()
