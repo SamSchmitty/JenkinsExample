@@ -14,19 +14,23 @@ pipeline {
                     url: 'https://github.com/SamSchmitty/JenkinsExample.git'
             }
         }
-        withDotNet(sdk: 'SimpleInputExample_dotnet_8_sdk') {
-            stage('Restore packages') {
-                steps {
+        stage('Restore packages') {
+            steps {
+                withDotNet(sdk: 'SimpleInputExample_dotnet_8_sdk') {
                     dotnetRestore()
                 }
             }
-            stage('Build Code') {
-                steps {
+        }
+        stage('Build Code') {
+            steps {
+                withDotNet(sdk: 'SimpleInputExample_dotnet_8_sdk') {
                     dotnetBuild()
                 }
             }
-            stage('Unit Tests') {
-                steps {
+        }
+        stage('Unit Tests') {
+            steps {
+                withDotNet(sdk: 'SimpleInputExample_dotnet_8_sdk') {
                     dotnetTest()
                 }
             }
