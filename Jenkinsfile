@@ -1,5 +1,6 @@
 pipeline {
     agent any
+    withDotNet(sdk: 'SimpleInputExample_dotnet_8_sdk')
     stages {
         stage('Clean Workspace') {
             steps {
@@ -21,12 +22,12 @@ pipeline {
         }
         stage('Build Code') {
             steps {
-                sh 'dotnet build'
+                dotnetBuild()
             }
         }
         stage('Unit Tests') {
             steps {
-                sh 'dotnet test'
+                dotnetTest()
             }
         }
     }
