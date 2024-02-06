@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Restore packages') {
             steps {
-                sh 'dotnet restore'
+                dotnetRestore()
             }
         }
         stage('Build Code') {
@@ -24,7 +24,7 @@ pipeline {
                 sh 'dotnet build'
             }
         }
-        stage('Unit Tests'){
+        stage('Unit Tests') {
             steps {
                 sh 'dotnet test'
             }
