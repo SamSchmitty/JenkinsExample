@@ -1,6 +1,8 @@
 pipeline {
     agent any
-    withDotNet(sdk: 'SimpleInputExample_dotnet_8_sdk')
+    tools {
+        withDotNet(sdk: 'SimpleInputExample_dotnet_8_sdk')
+    }
     stages {
         stage('Clean Workspace') {
             steps {
