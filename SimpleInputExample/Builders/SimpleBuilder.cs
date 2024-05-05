@@ -4,7 +4,7 @@ namespace Builders
     {
         public bool IsInputDivisibleByTwo(int input)
         {
-            return input % 3 == 0;
+            return input % 2 == 0;
         }
     }
 }
