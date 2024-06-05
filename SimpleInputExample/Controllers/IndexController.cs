@@ -4,15 +4,16 @@ using SimpleInputExample.ViewModels;
 
 namespace SimpleInputExample.Controllers
 {
-    public class SimpleInputController : Controller
+    public class IndexController : Controller
     {
         private readonly SimpleBuilder _simpleBuilder;
 
-        public SimpleInputController()
+        public IndexController()
         {
             _simpleBuilder = new SimpleBuilder();
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             // using the default values set in the ViewModel class.
