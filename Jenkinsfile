@@ -41,7 +41,7 @@ pipeline {
             recordIssues(
                 enabledForFailure: true,
                 aggregatingResults: true,
-                tools: [msBuild()]
+                tools: [msBuild(), groovyScript()]
             )
         }
     }
