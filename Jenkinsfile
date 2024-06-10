@@ -36,4 +36,12 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            recordIssues(
+                enabledForFailure: true,
+                aggregatingResults: true
+            )
+        }
+    }
 }
