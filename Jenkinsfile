@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 echo 'Checking out code'
-                git branch: 'main', credentialsId: 'github-jenkinsexample-pat-credentials',
+                git branch: 'QA', credentialsId: 'github-jenkinsexample-pat-credentials',
                     url: 'https://github.com/SamSchmitty/JenkinsExample.git'
             }
         }
