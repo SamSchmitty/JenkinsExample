@@ -40,7 +40,8 @@ pipeline {
         always {
             recordIssues(
                 enabledForFailure: true,
-                aggregatingResults: true
+                aggregatingResults: true,
+                tools: [msBuild()]
             )
         }
     }
