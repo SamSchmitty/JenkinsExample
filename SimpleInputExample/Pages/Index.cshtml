@@ -5,9 +5,14 @@
 }
 
 <div class="text-center">
-    <form id="simpleInputForm">
+    <form id="simpleInputForm" method="post">
         @Html.LabelFor(m => m.DivisibleByTwoInput, "Enter an intiger that is divisible by 2.", new { @class = "h2" })
         <br>
+        @if (!string.IsNullOrEmpty(Model.Message))
+        {
+            <p>@Model.Message</p>
+            <br>
+        }
         @Html.TextAreaFor(m => m.DivisibleByTwoInput)
         <br>
         <button id="SimpleInputFormButtonPost">Check</button>

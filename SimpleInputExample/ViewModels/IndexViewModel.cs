@@ -17,6 +17,7 @@ public class IndexViewModel : PageModel
     /// <summary>
     /// Input for the page
     /// </summary>
+    [BindProperty]
     public int DivisibleByTwoInput { get; set; } = 0;
 
     /// <summary>
@@ -24,9 +25,26 @@ public class IndexViewModel : PageModel
     /// </summary>
     public string Message { get; set; } = "";
 
-    public void OnGet()
+    public IActionResult OnGet(string? message, int? divisibleByTwoInput)
     {
-        if (_simpleBuilder.IsInputDivisibleByTwo(DivisibleByTwoInput))
+        if (divisibleByTwoInput == null)
+        {
+            divisibleByTwoInput = 0;
+        }
+        if (message == null)
+        {
+            message = "";
+        }
+        Message = message;
+        DivisibleByTwoInput = divisibleByTwoInput.Value;
+        return Page();
+    }
+
+
+    public async Task<IActionResult> OnPost(int divisibleByTwoInput)
+    {
+        DivisibleByTwoInput = divisibleByTwoInput;
+        if (_simpleBuilder.IsInputDivisibleByTwo(divisibleByTwoInput))
         {
             Message = "Congrats! Divisible by 2!";
         }
@@ -34,6 +52,6 @@ public class IndexViewModel : PageModel
         {
             Message = "Sorry, not divisible by 2.";
         }
-        // return ViewResult{};
+        return RedirectToPage("./Index", new { message = Message, divisibleByTwoInput = DivisibleByTwoInput });
     }
 }
