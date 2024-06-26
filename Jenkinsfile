@@ -44,7 +44,7 @@ pipeline {
                 dir('SimpleInputExample') {
                     script {
                         docker.withRegistry('http://localhost:5050') {
-                            docker.build('test').push('latest')
+                            docker.build('test01').push('latest')
                         }
                     }
                 }
