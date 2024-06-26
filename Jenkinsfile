@@ -41,8 +41,10 @@ pipeline {
                 withDotNet(sdk: 'SimpleInputExample_dotnet_8_sdk') {
                     dotnetPublish()
                 }
-                docker.withRegistry('http://localhost:5050') {
-                    docker.build('test').push('latest')
+                script {
+                    docker.withRegistry('http://localhost:5050') {
+                        docker.build('test').push('latest')
+                    }
                 }
             }
         }
