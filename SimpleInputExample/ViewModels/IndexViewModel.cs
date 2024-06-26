@@ -40,7 +40,6 @@ public class IndexViewModel : PageModel
         return Page();
     }
 
-
     public async Task<IActionResult> OnPost(int divisibleByTwoInput)
     {
         DivisibleByTwoInput = divisibleByTwoInput;
