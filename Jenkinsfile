@@ -5,8 +5,8 @@ pipeline {
             steps {
                 echo 'Cleaning Workspace...'
                 cleanWs()
-                env.PATH = "/usr/local/bin:${env.PATH}"
             }
+            env.PATH = "/usr/local/bin:${env.PATH}"
         }
         stage('Checkout Code') {
             steps {
