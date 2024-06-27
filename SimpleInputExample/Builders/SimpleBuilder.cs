@@ -8,7 +8,7 @@ namespace Builders
             {
                 return false;
             }
-            return input % 2 == 0;
+            return input % 3 == 0;
         }
     }
 }
